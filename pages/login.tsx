@@ -1,3 +1,7 @@
+/* 
+  로그인 페이지
+*/
+
 import { GetServerSideProps, NextPage } from 'next';
 import { getProviders, signIn } from 'next-auth/react';
 import Image from 'next/image';

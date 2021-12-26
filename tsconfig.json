@@ -17,15 +17,6 @@
 		"incremental": true,
 		"types": ["cypress"]
 	},
-	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		"cypress/support/index.js",
-		"cypress/support/commands.js",
-		"cypress/plugins/index.js",
-		"cypress/plugins/index.ts",
-		"pages/api/auth/[...nextauth].js"
-	],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }

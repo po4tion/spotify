@@ -1,3 +1,7 @@
+/* 
+	홈 페이지
+*/
+
 import SideBar from 'components/SideBar';
 
 function Home() {

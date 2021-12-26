@@ -1,15 +1,26 @@
-import NextAuth from 'next-auth';
+import NextAuth, { Session, User, Account } from 'next-auth';
 import SpotifyProvider from 'next-auth/providers/spotify';
 import spotifyAPI, { LOGIN_URL } from 'lib/spotify';
+import { JWT } from 'next-auth/jwt';
 
-async function refreshAccessToken(token) {
+interface JwtType {
+	readonly token: JWT;
+	readonly user?: User;
+	readonly account?: Account;
+}
+
+interface SessionType {
+	readonly token: JWT;
+	readonly session: Session;
+}
+
+//
+async function refreshAccessToken(token: JWT) {
 	try {
 		spotifyAPI.setAccessToken(token.accessToken);
 		spotifyAPI.setRefreshToken(token.refreshToken);
 
 		const { body: refreshedToken } = await spotifyAPI.refreshAccessToken();
-
-		console.log('REFRESHED TOKEN', refreshedToken);
 
 		return {
 			...token,
@@ -18,8 +29,6 @@ async function refreshAccessToken(token) {
 			refreshToken: refreshedToken.refresh_token ?? token.refreshToken,
 		};
 	} catch (error) {
-		console.error(error);
-
 		return {
 			...token,
 			error: 'RefreshAccessTokenError',
@@ -40,8 +49,8 @@ export default NextAuth({
 		signIn: '/login',
 	},
 	callbacks: {
-		async jwt({ token, user, account }) {
-			// 로그인 진입 시
+		async jwt({ token, user, account }: JwtType): Promise<JWT> {
+			// 로그인 진입 시 token 값 설정
 			if (account && user) {
 				return {
 					...token,
@@ -54,16 +63,17 @@ export default NextAuth({
 
 			// access token이 만료되지 않았으면 이전의 토큰 값 전달
 			if (Date.now() < token.accessTokenExpires) {
-				console.log('토큰의 기한이 남았습니다.');
+				console.log('token is not expired');
 				return token;
 			}
 
 			// Access token이 만료되었으면 refresh token으로 업데이트
-			console.log('토큰의 기한이 만료되어 refresh token을 발급합니다.');
+			console.log('refreshAccessToken');
 			return await refreshAccessToken(token);
 		},
 
-		async session({ session, token }) {
+		// 세션 값 설정
+		async session({ session, token }: SessionType): Promise<Session> {
 			session.user.accessToken = token.accessToken;
 			session.user.refreshToken = token.refreshToken;
 			session.user.username = token.username;
