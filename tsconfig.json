@@ -24,7 +24,8 @@
 		"cypress/support/index.js",
 		"cypress/support/commands.js",
 		"cypress/plugins/index.js",
-		"cypress/plugins/index.ts"
+		"cypress/plugins/index.ts",
+		"pages/api/auth/[...nextauth].js"
 	],
 	"exclude": ["node_modules"]
 }
