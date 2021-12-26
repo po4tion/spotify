@@ -1,10 +1,10 @@
+import SideBar from 'components/SideBar';
+
 function Home() {
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen py-2">
-			<h1>Spotify</h1>
-
+		<div className="bg-black h-screen overflow-hidden">
 			<main>
-				{/* sidebar */}
+				<SideBar />
 				{/* body */}
 			</main>
 

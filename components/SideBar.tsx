@@ -1,0 +1,67 @@
+/* 
+	화면 좌측 사이드바 컴포넌트
+*/
+
+import {
+	HeartIcon,
+	HomeIcon,
+	LibraryIcon,
+	PlusCircleIcon,
+	RssIcon,
+	SearchIcon,
+} from '@heroicons/react/outline';
+
+function SideBar() {
+	return (
+		<div className="border-gray-900 border-r p-5 text-gray-500 text-sm">
+			<div className="space-y-4">
+				<button className="flex items-center space-x-2 hover:text-white">
+					<HomeIcon className="h-5 w-5" />
+					<p>홈</p>
+				</button>
+				<button className="flex items-center space-x-2 hover:text-white">
+					<SearchIcon className="h-5 w-5" />
+					<p>검색</p>
+				</button>
+				<button className="flex items-center space-x-2 hover:text-white">
+					<LibraryIcon className="h-5 w-5" />
+					<p>라이브러리</p>
+				</button>
+				<hr className="border-gray-900 border-t-[0.1px]" />
+
+				<button className="flex items-center space-x-2 hover:text-white">
+					<PlusCircleIcon className="h-5 w-5" />
+					<p>재생목록 만들기</p>
+				</button>
+				<button className="flex items-center space-x-2 hover:text-white">
+					<HeartIcon className="h-5 w-5" />
+					<p>찜 목록</p>
+				</button>
+				<button className="flex items-center space-x-2 hover:text-white">
+					<RssIcon className="h-5 w-5" />
+					<p>RSS 피드</p>
+				</button>
+				<hr className="border-gray-900 border-t-[0.1px]" />
+
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+			</div>
+		</div>
+	);
+}
+
+export default SideBar;

@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"baseUrl": ".",
 		"target": "es5",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
@@ -16,6 +17,14 @@
 		"incremental": true,
 		"types": ["cypress"]
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"cypress/support/index.js",
+		"cypress/support/commands.js",
+		"cypress/plugins/index.js",
+		"cypress/plugins/index.ts"
+	],
 	"exclude": ["node_modules"]
 }
