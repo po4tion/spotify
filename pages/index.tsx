@@ -2,14 +2,15 @@
 	홈 페이지
 */
 
+import Center from 'components/Center';
 import SideBar from 'components/SideBar';
 
 function Home() {
 	return (
 		<div className="bg-black h-screen overflow-hidden">
-			<main>
+			<main className="flex">
 				<SideBar />
-				{/* body */}
+				<Center />
 			</main>
 
 			<div>{/* Player */}</div>

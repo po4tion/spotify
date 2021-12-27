@@ -15,8 +15,8 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
-		"types": ["cypress"]
+		"types": ["cypress", "spotify-web-api-node"]
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "hooks/useSpotify.tsㅌ"],
 	"exclude": ["node_modules"]
 }

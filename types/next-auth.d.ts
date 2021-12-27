@@ -23,6 +23,8 @@ declare module 'next-auth' {
 			accessToken: string;
 			refreshToken: string;
 			username: string;
+			readonly image?: string;
+			readonly name?: string;
 		};
 	}
 }

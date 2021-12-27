@@ -11,13 +11,31 @@ import {
 	RssIcon,
 	SearchIcon,
 } from '@heroicons/react/outline';
+import useSpotify from 'hooks/useSpotify';
 import { signOut, useSession } from 'next-auth/react';
+import { useEffect, useState } from 'react';
+
+interface PlaylistType {
+	readonly id: string;
+	readonly name: string;
+}
 
 function SideBar() {
-	const { data: session } = useSession();
+	const { data: session, status } = useSession();
+	const spotifyAPI = useSpotify();
+	const [playlists, setPlaylists] = useState<PlaylistType[] | null>(null);
+	const [playlistId, setPlaylistId] = useState<string | null>(null);
+
+	useEffect(() => {
+		if (spotifyAPI.getAccessToken()) {
+			spotifyAPI.getUserPlaylists().then((data) => {
+				setPlaylists(data.body.items);
+			});
+		}
+	}, [session, spotifyAPI]);
 
 	return (
-		<div className="border-gray-900 border-r p-5 text-gray-500 text-sm">
+		<div className="border-gray-900 border-r h-screen overflow-y-scroll p-5 scrollbar-hide text-gray-500 text-sm">
 			<div className="space-y-4">
 				<button
 					className="flex items-center space-x-2 hover:text-white"
@@ -54,22 +72,15 @@ function SideBar() {
 				</button>
 				<hr className="border-gray-900 border-t-[0.1px]" />
 
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
-				<p className="cursor-pointer hover:text-white">재생목록 이름</p>
+				{playlists?.map(({ id, name }) => (
+					<p
+						key={id}
+						onClick={() => setPlaylistId(id)}
+						className="cursor-pointer hover:text-white"
+					>
+						{name}
+					</p>
+				))}
 			</div>
 		</div>
 	);

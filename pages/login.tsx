@@ -21,7 +21,7 @@ interface Props {
 const login: NextPage<Props> = ({ providers }) => {
 	return (
 		<div className="bg-black flex flex-col items-center justify-center min-h-screen w-full">
-			<div className="w-52 h-52 mb-5 relative">
+			<div className="h-52 mb-5 relative w-52">
 				<Image
 					src="https://links.papareact.com/9xl"
 					alt="Spotify 로그인 썸네일"
@@ -35,6 +35,7 @@ const login: NextPage<Props> = ({ providers }) => {
 					<button
 						className="bg-[#18D860] text-white p-5 rounded-full"
 						onClick={() => signIn(provider.id, { callbackUrl: '/' })}
+						data-cy="Login"
 					>
 						Login With {provider.name}
 					</button>
