@@ -27,10 +27,11 @@
 
 ## Spotify
 
-UI는 Spotify web player를 클론하였으며 나의 플레이리스트들을 조작할 수 있습니다.
+UI는 Spotify web player를 클론하였으며 Spotify API를 통해 나의 플레이리스트들을 조작할 수 있는 프로젝트입니다.
 
 ## 설명
 
+- Spotify API를 
 - Next.js를 통해 SSR, SEO, API Routes, font, image optimization 등을 적용
 - Tailwind CSS를 통해 웹 UI 전체 페이지 적용(반응형 웹 적용)
 - 상태 관리 라이브러리 Recoil 사용
