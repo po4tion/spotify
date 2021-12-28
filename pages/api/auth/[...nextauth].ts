@@ -63,12 +63,11 @@ export default NextAuth({
 
 			// access token이 만료되지 않았으면 이전의 토큰 값 전달
 			if (Date.now() < token.accessTokenExpires) {
-				console.log('token is not expired');
 				return token;
 			}
 
 			// Access token이 만료되었으면 refresh token으로 업데이트
-			console.log('refreshAccessToken');
+
 			return await refreshAccessToken(token);
 		},
 

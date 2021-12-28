@@ -3,28 +3,29 @@
 */
 
 import {
-	HeartIcon,
 	HomeIcon,
 	LibraryIcon,
-	LogoutIcon,
 	PlusCircleIcon,
-	RssIcon,
 	SearchIcon,
 } from '@heroicons/react/outline';
+import { HeartIcon, RssIcon } from '@heroicons/react/solid';
 import useSpotify from 'hooks/useSpotify';
-import { signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-
+import { useRecoilState } from 'recoil';
+import { playlistIdState } from 'atoms/playlistAtom';
 interface PlaylistType {
 	readonly id: string;
 	readonly name: string;
 }
 
 function SideBar() {
-	const { data: session, status } = useSession();
-	const spotifyAPI = useSpotify();
+	const { data: session } = useSession();
 	const [playlists, setPlaylists] = useState<PlaylistType[] | null>(null);
-	const [playlistId, setPlaylistId] = useState<string | null>(null);
+	const [playlistId, setPlaylistId] = useRecoilState<string | null>(
+		playlistIdState
+	);
+	const spotifyAPI = useSpotify();
 
 	useEffect(() => {
 		if (spotifyAPI.getAccessToken()) {
@@ -35,15 +36,8 @@ function SideBar() {
 	}, [session, spotifyAPI]);
 
 	return (
-		<div className="border-gray-900 border-r h-screen overflow-y-scroll p-5 scrollbar-hide text-gray-500 text-sm">
+		<div className="border-gray-900 border-r hidden h-screen overflow-y-scroll p-5 scrollbar-hide text-gray-500 text-xs max-w-[12rem] md:inline-flex lg:text-sm lg:max-w-[15rem]">
 			<div className="space-y-4">
-				<button
-					className="flex items-center space-x-2 hover:text-white"
-					onClick={() => signOut()}
-				>
-					<LogoutIcon className="h-5 w-5" />
-					<p data-cy="로그아웃">로그아웃</p>
-				</button>
 				<button className="flex items-center space-x-2 hover:text-white">
 					<HomeIcon className="h-5 w-5" />
 					<p data-cy="홈">홈</p>
@@ -63,11 +57,11 @@ function SideBar() {
 					<p data-cy="재생목록-만들기">재생목록 만들기</p>
 				</button>
 				<button className="flex items-center space-x-2 hover:text-white">
-					<HeartIcon className="h-5 w-5" />
+					<HeartIcon className="h-5 text-red-500 w-5" />
 					<p data-cy="찜-목록">찜 목록</p>
 				</button>
 				<button className="flex items-center space-x-2 hover:text-white">
-					<RssIcon className="h-5 w-5" />
+					<RssIcon className="h-5 text-green-500 w-5" />
 					<p data-cy="RSS-피드">RSS 피드</p>
 				</button>
 				<hr className="border-gray-900 border-t-[0.1px]" />

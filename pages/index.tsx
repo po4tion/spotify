@@ -3,6 +3,7 @@
 */
 
 import Center from 'components/Center';
+import Player from 'components/Player';
 import SideBar from 'components/SideBar';
 
 function Home() {
@@ -13,7 +14,9 @@ function Home() {
 				<Center />
 			</main>
 
-			<div>{/* Player */}</div>
+			<div className="bottom-0 sticky">
+				<Player />
+			</div>
 		</div>
 	);
 }
