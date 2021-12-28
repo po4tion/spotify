@@ -38,9 +38,9 @@ UI는 Spotify web player를 클론하였으며 나의 플레이리스트들을 �
 - TypeScript 사용으로 에러 사전 방지
 
 ## 사용 방법
-
-- 가장 먼저 <a href="https://www.spotify.com/kr-ko" target="_blank">Spotify</a> 사이트에 들어가 웹 플레이어 혹은 데스크톱 응용 프로그램을 실행한 후 로그인합니다. 
-- 그 후 <a href="https://spotify-po4tion.vercel.app/" target="_blank">Clone Spotify Web Player</a>로 이동하여 로그인합니다.
+ 
+- 가장 먼저 [Spotify](https://www.spotify.com/kr-ko) 사이트에 들어가 웹 플레이어 혹은 데스크톱 응용 프로그램을 실행한 후 로그인합니다. 
+- 그 후 [Clone Spotify Web Player](https://spotify-po4tion.vercel.app/)로 이동하여 로그인합니다.
 - 이전 노래와 다음 노래 버튼은 Spotify 플레이어에서 현재 재생목록에 노래들을 추가하셔야 사용 가능합니다.
 - 개인 플레이리스트에서 노래들을 선택하여 실행가능하며 이때 Spotfy 플레이어는 종료하시면 안됩니다(종료하시면 소리가 안나옵니다).
 - 노래가 나오지 않을 경우 Spotify 플레이어에서 재생버튼을 한번 클릭해주세요.
