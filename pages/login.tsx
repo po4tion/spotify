@@ -37,7 +37,7 @@ const login: NextPage<Props> = ({ providers }) => {
 						onClick={() => signIn(provider.id, { callbackUrl: '/' })}
 						data-cy="Login"
 					>
-						Login With {provider.name}
+						{provider.name} 로그인
 					</button>
 				</div>
 			))}
@@ -47,7 +47,7 @@ const login: NextPage<Props> = ({ providers }) => {
 
 export default login;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
 	const providers = await getProviders();
 
 	return {
