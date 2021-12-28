@@ -31,10 +31,9 @@ UI는 Spotify web player를 클론하였으며 Spotify API를 통해 나의 플�
 
 ## 설명
 
-- Spotify API를 
 - Next.js를 통해 SSR, SEO, API Routes, font, image optimization 등을 적용
 - Tailwind CSS를 통해 웹 UI 전체 페이지 적용(반응형 웹 적용)
-- 상태 관리 라이브러리 Recoil 사용
+- 상태 관리 라이브러리 Recoil 사용으로 Spotify API 관리 
 - NextAuth.js로 Spotify OAuth 구현
 - TypeScript 사용으로 에러 사전 방지
 
