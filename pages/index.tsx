@@ -1,14 +1,22 @@
+/* 
+	홈 페이지
+*/
+
+import Center from 'components/Center';
+import Player from 'components/Player';
+import SideBar from 'components/SideBar';
+
 function Home() {
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen py-2">
-			<h1>Spotify</h1>
-
-			<main>
-				{/* sidebar */}
-				{/* body */}
+		<div className="bg-black h-screen overflow-hidden">
+			<main className="flex">
+				<SideBar />
+				<Center />
 			</main>
 
-			<div>{/* Player */}</div>
+			<div className="bottom-0 sticky">
+				<Player />
+			</div>
 		</div>
 	);
 }

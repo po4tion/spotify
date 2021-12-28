@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.button {
+		@apply cursor-pointer duration-100 ease-out h-5 transform transition w-5 hover:scale-125 sm:h-7 sm:w-7;
+	}
+}
