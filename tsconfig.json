@@ -17,6 +17,6 @@
 		"incremental": true,
 		"types": ["cypress", "spotify-api"]
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "hooks/useSpotify.tsㅌ"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }
